@@ -1,6 +1,6 @@
 # Next.JS Starter Boilerplate
 
-A Next.js starter kit template with Next.js 12 + React 17 + Typescript + Tailwind CSS 2 + Heroicons + Headless UI.
+A Next.js starter kit template with Next.js 12 + React 17 + Typescript + Tailwind CSS 3 + Heroicons + Headless UI.
 
 Other tools included: Autoprefixer, Sass, PostCSS, ESLint, Prettier.
 
