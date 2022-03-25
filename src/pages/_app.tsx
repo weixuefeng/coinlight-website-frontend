@@ -1,4 +1,4 @@
-import 'theme/style.scss'
+import 'styles/style.scss'
 import type { AppProps } from 'next/app'
 import { ThemeProvider } from 'next-themes'
 
