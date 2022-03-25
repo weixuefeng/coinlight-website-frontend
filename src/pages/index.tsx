@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import styles from 'theme/Home.module.scss'
-import ThemeToggleButton from 'theme/ThemeToggleButton'
+import ThemeToggleButton from 'components/Layout/ThemeToggleButton'
 
 export default Home
 
