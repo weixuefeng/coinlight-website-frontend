@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import styles from 'styles/Home.module.scss'
 import ThemeToggleButton from 'components/Layout/ThemeToggleButton'
+import ThemeToggle from 'components/Layout/ThemeToggle'
 
 export default Home
 
@@ -23,8 +24,14 @@ function Home() {
 function Header() {
   return (
     <header className={styles.header}>
+      <div>
+        <ThemeToggle />
+      </div>
       header
       <ThemeToggleButton />
+      <div>
+        <ThemeToggle menuPosition="right-0" />
+      </div>
     </header>
   )
 }
