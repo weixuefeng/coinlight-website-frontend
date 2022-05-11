@@ -1,15 +1,69 @@
 .container {
-  @apply flex flex-col;
+  @apply flex flex-col max-w-[1200px] mx-auto;
   min-height: 100vh;
   padding: 0 0.5rem;
 }
 
 .header {
-  @apply flex items-center justify-center;
-  width: 100%;
-  height: 100px;
-  border-bottom: 1px solid #eaeaea;
+  @apply flex h-[100px] w-full items-center px-4 z-50;
+  dl {
+    @apply relative ml-3 h-4 leading-4 cursor-pointer;
+    &:hover {
+      dd {
+        @apply block w-auto h-10;
+      }
+    }
+  }
+  dd {
+    @apply hidden absolute top-[18px] right-0 leading-6;
+  }
 }
+.menuHeader {
+  a {
+    @apply my-4 flex items-center justify-center text-base;
+  }
+}
+.headerPc {
+  @apply hidden w-full lg:block;
+  > div {
+    @apply flex h-[100px] w-full items-center justify-center;
+    > div {
+      @apply flex w-52 cursor-pointer;
+      img {
+        @apply w-full;
+      }
+    }
+    span {
+      @apply ml-3 mt-3 h-4 rounded bg-black px-1 text-xs leading-4 text-white;
+    }
+  }
+  p {
+    @apply ml-auto;
+  }
+
+  a {
+    @apply ml-14 xl:ml-10;
+  }
+}
+.mobileHeader {
+  @apply flex w-full lg:hidden;
+  > a {
+    @apply flex;
+  }
+  img {
+    @apply w-20;
+  }
+  span {
+    @apply ml-1 mt-1 h-[10px] rounded bg-black px-1 text-xs leading-[10px] text-white md:h-4;
+  }
+  > button {
+    @apply ml-auto;
+  }
+}
+.mobileSidebar {
+  @apply w-full bg-gray-100;
+}
+
 
 .main {
   @apply flex flex-col;
