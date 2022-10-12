@@ -1,20 +1,22 @@
-module.exports = {
-  reactStrictMode: true
+/*
+ * @Author: liukeke liukeke@diynova.com
+ * @Date: 2022-10-12 20:16:46
+ * @LastEditors: liukeke liukeke@diynova.com
+ * @LastEditTime: 2022-10-12 20:21:35
+ * @FilePath: /nextjs-starter-boilerplate/next.config.wizardcopy.js
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
+const { withSentryConfig } = require('@sentry/nextjs');
 
-  /*  AssetPrefix
-    --------------------------------------------------------------------------------
-    AssetPrefix is used to determine where the "app" folder is located.
-    Use "/" to have it at the root.
-    Use "./" to have it at the root of the current directory.
-    Learn more at https://nextjs.org/docs/api-reference/next.config.js/cdn-support-with-asset-prefix
-  */
-  // assetPrefix: './',
+const moduleExports = {
+  reactStrictMode: true,
+  sentry: {
+    hideSourceMaps: true,
+  },
+};
 
-  /* exportTrailingSlash
-    --------------------------------------------------------------------------------
-    exportTrailingSlash is used to determine whether to export a trailing slash
-    on the generated URL.
-    Learn more at https://nextjs.org/docs/api-reference/next.config.js/export-trailing-slash
-  */
-  // exportTrailingSlash: true,
-}
+const sentryWebpackPluginOptions = {
+  silent: true, 
+};
+
+module.exports = withSentryConfig(moduleExports, sentryWebpackPluginOptions);
