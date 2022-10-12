@@ -1,36 +1,44 @@
+/*
+ * @Author: liukeke liukeke@diynova.com
+ * @Date: 2022-10-12 19:08:34
+ * @LastEditors: liukeke liukeke@diynova.com
+ * @LastEditTime: 2022-10-12 20:26:16
+ * @FilePath: /nextjs-starter-boilerplate/src/pages/index.tsx
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE)
+ */
 import Head from 'next/head'
 import styles from 'styles/Home.module.scss'
-import React, {useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import ThemeToggleButton from 'components/Layout/ThemeToggleButton'
 import ThemeToggle from 'components/Layout/ThemeToggle'
-import { withTranslation,useTranslation } from 'react-i18next';
+import { withTranslation, useTranslation } from 'react-i18next';
 import Header from 'components/header/header'
 export default Home
 
 function Home() {
   const navList = [
     {
-        src: '/',
-        nav: 'WAVE'
+      src: '/',
+      nav: 'WAVE'
     },
     {
-        src: '/',
-        nav: 'FEATURES'
+      src: '/',
+      nav: 'FEATURES'
     },
     {
-        src: '/',
-        nav: 'COMMUNITY'
+      src: '/',
+      nav: 'COMMUNITY'
     },
     {
-        src: '/',
-        nav: 'FAQ'
+      src: '/',
+      nav: 'FAQ'
     },
     {
-        src: '/',
-        nav: 'DOWNLOAD'
+      src: '/',
+      nav: 'DOWNLOAD'
     }
-]
-  const logo  = '/assets/image/logo.png'
+  ]
+  const logo = '/assets/image/logo.png'
   const [date] = useState(navList)
   return (
     <div className={styles.container}>
@@ -56,5 +64,19 @@ function Main() {
 }
 
 function Footer() {
-  return <footer className={styles.footer}>footer</footer>
+  return (
+    <>
+      <button
+        type="button"
+        onClick={() => {
+          throw new Error("Sentry Frontend Error");
+        }}
+      >
+        Throw error
+      </button>
+      <footer className={styles.footer}>
+        footer
+      </footer>
+    </>
+  )
 }
