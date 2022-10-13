@@ -1,11 +1,8 @@
-// import { Transition } from '@headlessui/react'
 import React, { Fragment, useState } from 'react'
 import Link from 'next/link'
 import { Dialog, Transition } from '@headlessui/react'
-import { MenuAlt1Icon, XIcon } from '@heroicons/react/outline'
-import { Translation, useTranslation } from 'react-i18next'
-import { changeLanguage } from 'i18next'
-import styles from 'styles/Home.module.scss'
+import { useTranslation } from 'react-i18next'
+
 export default function Header(props) {
   const languageTitle = [
     {
@@ -17,21 +14,44 @@ export default function Header(props) {
       title: '中文',
     },
   ]
+  const navList = [
+    {
+      src: '/',
+      nav: 'WAVE',
+    },
+    {
+      src: '/',
+      nav: 'FEATURES',
+    },
+    {
+      src: '/',
+      nav: 'COMMUNITY',
+    },
+    {
+      src: '/',
+      nav: 'FAQ',
+    },
+    {
+      src: '/',
+      nav: 'DOWNLOAD',
+    },
+  ]
+
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false)
   let { i18n } = useTranslation()
   const { t } = useTranslation()
+
   return (
-    <header className={styles.header}>
-      <div className={styles.headerPc}>
+    <header className={'header'}>
+      <div className={'header-pc'}>
         <div>
-          <Link href="/">
+          <Link href="/" passHref>
             <div>
-              <img src={props.logo} alt="Wave" />
-              {/* <span>Alpha</span> */}
+              <img src="/assets/image/logo.png" alt="Wave" />
             </div>
           </Link>
           <p>
-            {props.date.map((item, index) => {
+            {navList.map((item, index) => {
               return (
                 <Link href={item.src} key={index}>
                   {t(item.nav)}
@@ -39,7 +59,7 @@ export default function Header(props) {
               )
             })}
           </p>
-          <dl className={styles.language} id="language">
+          <dl className={'language'} id="language">
             <dt>切换语言</dt>
             <dd>
               {languageTitle.map((item, index) => {
@@ -53,14 +73,14 @@ export default function Header(props) {
           </dl>
         </div>
       </div>
-      <div className={styles.mobileHeader}>
+      <div className={'mobile-header'}>
         <Link href="/">
           <a>
             <img src={props.logo} alt="mobileLogo" />
             {/* <span>Alpha</span> */}
           </a>
         </Link>
-        <dl className={styles.language} id="language">
+        <dl className={'language'} id="language">
           <dt>切换语言</dt>
           <dd>
             {languageTitle.map((item, index) => {
@@ -130,7 +150,7 @@ export default function Header(props) {
             leaveFrom="translate-x-0"
             leaveTo="-translate-x-full"
           >
-            <div id="mobile-sidebar" className={styles.mobileSidebar}>
+            <div id="mobile-sidebar" className={'mobile-sidebar'}>
               <Transition.Child
                 as={Fragment}
                 enter="ease-in-out duration-200"
@@ -165,7 +185,7 @@ export default function Header(props) {
 const SiteNavMenu = props => {
   const { t } = useTranslation()
   return (
-    <p className={styles.menuHeader}>
+    <p className={'menu-header'}>
       {props.date.map((item, index) => {
         return (
           <Link href={item.src} key={index}>

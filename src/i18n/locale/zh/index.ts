@@ -5,4 +5,5 @@ export const zhTransaction = {
   FAQ: '问题',
   DOWNLOAD: '下载',
   Welcome: '欢迎',
+  Content: '中间内容',
 }
