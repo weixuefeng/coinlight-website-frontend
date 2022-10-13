@@ -1,5 +1,4 @@
+import { zhTransaction } from './zh'
+import { enTransaction } from './en'
 
-import { zhTransaction } from "./zh";
-import { enTransaction } from "./en";
-
-export { zhTransaction, enTransaction };
+export { zhTransaction, enTransaction }

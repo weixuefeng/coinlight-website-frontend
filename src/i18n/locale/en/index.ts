@@ -1,9 +1,8 @@
-
 export const enTransaction = {
-  WAVE:'WAVE',
-  FEATURES: "FEATURES",
-  COMMUNITY: "community",
+  WAVE: 'WAVE',
+  FEATURES: 'FEATURES',
+  COMMUNITY: 'community',
   FAQ: 'FAQ',
-  DOWNLOAD: "DOWNLOAD",
-  Welcome: 'Welcome'
-};
+  DOWNLOAD: 'DOWNLOAD',
+  Welcome: 'Welcome',
+}

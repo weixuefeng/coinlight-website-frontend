@@ -1,21 +1,21 @@
 .container {
-  @apply flex flex-col max-w-[1200px] mx-auto;
+  @apply mx-auto flex max-w-[1200px] flex-col;
   min-height: 100vh;
   padding: 0 0.5rem;
 }
 
 .header {
-  @apply flex h-[100px] w-full items-center px-4 z-50;
+  @apply z-50 flex h-[100px] w-full items-center px-4;
   dl {
-    @apply relative ml-3 h-4 leading-4 cursor-pointer;
+    @apply relative ml-3 h-4 cursor-pointer leading-4;
     &:hover {
       dd {
-        @apply block w-auto h-10;
+        @apply block h-10 w-auto;
       }
     }
   }
   dd {
-    @apply hidden absolute top-[18px] right-0 leading-6;
+    @apply absolute top-[18px] right-0 hidden leading-6;
   }
 }
 .menuHeader {
@@ -63,7 +63,6 @@
 .mobileSidebar {
   @apply w-full bg-gray-100;
 }
-
 
 .main {
   @apply flex flex-col;

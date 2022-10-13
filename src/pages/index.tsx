@@ -8,10 +8,10 @@
  */
 import Head from 'next/head'
 import styles from 'styles/Home.module.scss'
-import React, { useState, useEffect } from "react";
-import ThemeToggleButton from 'components/Layout/ThemeToggleButton'
-import ThemeToggle from 'components/Layout/ThemeToggle'
-import { withTranslation, useTranslation } from 'react-i18next';
+import React, { useState, useEffect } from 'react'
+import ThemeToggleButton from 'components/layout/themeToggleButton'
+import ThemeToggle from 'components/layout/themeToggle'
+import { withTranslation, useTranslation } from 'react-i18next'
 import Header from 'components/header/header'
 export default Home
 
@@ -19,24 +19,24 @@ function Home() {
   const navList = [
     {
       src: '/',
-      nav: 'WAVE'
+      nav: 'WAVE',
     },
     {
       src: '/',
-      nav: 'FEATURES'
+      nav: 'FEATURES',
     },
     {
       src: '/',
-      nav: 'COMMUNITY'
+      nav: 'COMMUNITY',
     },
     {
       src: '/',
-      nav: 'FAQ'
+      nav: 'FAQ',
     },
     {
       src: '/',
-      nav: 'DOWNLOAD'
-    }
+      nav: 'DOWNLOAD',
+    },
   ]
   const logo = '/assets/image/logo.png'
   const [date] = useState(navList)
@@ -69,14 +69,12 @@ function Footer() {
       <button
         type="button"
         onClick={() => {
-          throw new Error("Sentry Frontend Error");
+          throw new Error('Sentry Frontend Error')
         }}
       >
         Throw error
       </button>
-      <footer className={styles.footer}>
-        footer
-      </footer>
+      <footer className={styles.footer}>footer</footer>
     </>
   )
 }
