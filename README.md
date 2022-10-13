@@ -35,3 +35,24 @@ yarn fc
 # Use Prettier to do Format Fix for files under ./src
 yarn ff
 ```
+
+**commit**
+
+```bash
+# https://github.com/typicode/husky
+<type>[optional scope]: <description>
+[optional body]
+[optional footer(s)]
+# type *
+feat: 
+fix: 
+docs: 
+style: 
+refactor: 
+perf: 
+test: 
+chore: 
+revert: 
+build: 
+ci
+```
