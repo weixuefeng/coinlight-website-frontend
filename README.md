@@ -39,10 +39,15 @@ yarn ff
 **commit**
 
 ```bash
-# https://github.com/typicode/husky
+# https://www.npmjs.com/package/husky
+# https://www.npmjs.com/package/commitizen
+
+commit: yarn cz or npm run cz or feat:
+
 <type>[optional scope]: <description>
 [optional body]
 [optional footer(s)]
+
 # type *
 feat: 
 fix: 
@@ -55,4 +60,5 @@ chore:
 revert: 
 build: 
 ci
+
 ```
