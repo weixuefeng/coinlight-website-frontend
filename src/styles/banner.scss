@@ -3,6 +3,9 @@
   p {
     @apply absolute bottom-0 left-0 text-white;
   }
+  a {
+    @apply inline-block h-full w-full;
+  }
   .banner-left {
     @apply relative h-[402px] w-[926px];
     img {
@@ -23,7 +26,7 @@
       @apply h-[193px] w-[250px] rounded-[20px];
     }
     p {
-      @apply h-[92px] w-[250px] px-2 py-4 text-base;
+      @apply h-[98px] w-[250px] px-2 py-4 text-base;
       overflow: hidden;
       text-overflow: ellipsis;
       display: -webkit-box;
