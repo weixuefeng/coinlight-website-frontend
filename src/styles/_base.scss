@@ -1,3 +1,9 @@
+i {
+  font-style: normal;
+}
 body {
   @apply bg-whitef8;
+}
+.container {
+  @apply mx-auto max-w-[1200px];
 }

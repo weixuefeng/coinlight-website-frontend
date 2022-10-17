@@ -13,6 +13,8 @@ module.exports = {
         grayea: '#EAEAEA',
         gray999: '#999999',
         gray333: '#333333',
+        gray666: '#666666',
+        grayd8: '#D8D8D8',
         bluee6: '#E6EDFD',
         blue31: '#3165F4',
       },
