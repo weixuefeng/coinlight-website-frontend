@@ -5,7 +5,13 @@ module.exports = {
   ],
   darkMode: 'class', // 'media' is the default, change to 'class' if you want to use dark mode in with class names
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        whitefb: '#FBFBFB',
+        whitef1: '#F1F1F1',
+        whitef8: '#F8F8F8',
+      }
+    },
   },
   plugins: [
     require('@tailwindcss/typography'),

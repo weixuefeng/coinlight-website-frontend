@@ -1,0 +1,35 @@
+.banner {
+  @apply mt-10 mb-9 flex justify-between;
+  p {
+    @apply absolute bottom-0 left-0 text-white;
+  }
+  .banner-left {
+    @apply relative h-[402px] w-[926px];
+    img {
+      @apply h-full w-full rounded-[20px];
+    }
+    p {
+      @apply w-[926px] truncate p-4 text-xl;
+    }
+  }
+  .banner-right {
+    li {
+      @apply relative;
+      &:nth-child(1) {
+        @apply mb-4;
+      }
+    }
+    img {
+      @apply h-[193px] w-[250px] rounded-[20px];
+    }
+    p {
+      @apply h-[92px] w-[250px] px-2 py-4 text-base;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+    }
+  }
+}

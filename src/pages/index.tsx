@@ -2,16 +2,18 @@
  * @Author: liukeke liukeke@diynova.com
  * @Date: 2022-10-12 19:08:34
  * @LastEditors: liukeke liukeke@diynova.com
- * @LastEditTime: 2022-10-13 15:59:38
+ * @LastEditTime: 2022-10-17 14:23:31
  * @FilePath: /nextjs-starter-boilerplate/src/pages/index.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE)
  */
 
 import React, { useState, useEffect } from 'react'
-import NormalLayout from 'components/layout/normalLayout'
+import NormalLayout from 'components/Layout/normalLayout'
 import { PageModel } from 'model/navModel'
 import { useTranslation } from 'react-i18next'
 import { postRequest } from 'services/getAxios'
+import Banner from '../components/banner'
+
 export default Home
 
 function Home() {
@@ -39,8 +41,9 @@ function Main() {
     // }
   }
   return (
-    <div className={'container'}>
-      <div className={'main'}>{t('Content')}</div>
+    <div className="container">
+      <Banner />
+      {t('Content')}
     </div>
   )
 }

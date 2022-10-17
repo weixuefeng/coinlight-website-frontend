@@ -8,8 +8,8 @@
  */
 import React from 'react'
 import Head from 'next/head'
-import Header from '../header/header'
-import Footer from '../footer/footer'
+import Header from '../header'
+import Footer from '../footer'
 import { PageModel } from 'model/navModel'
 
 export default function NormalLayout(children: React.ReactNode, pageModel: PageModel = null): JSX.Element {
