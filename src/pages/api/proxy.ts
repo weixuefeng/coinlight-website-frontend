@@ -2,12 +2,12 @@
  * @Author: liukeke liukeke@diynova.com
  * @Date: 2022-10-13 16:03:19
  * @LastEditors: liukeke liukeke@diynova.com
- * @LastEditTime: 2022-10-13 16:04:36
+ * @LastEditTime: 2022-10-18 19:59:01
  * @FilePath: /nextjs-starter-boilerplate/src/pages/api/proxy.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 import axios from 'axios'
-import { WAVE_BASE_URL } from '../../constants/setting'
+import { COINLIGHT_BASE_URL } from '../../constants/setting'
 import { NextApiRequest, NextApiResponse } from 'next'
 import { decode } from 'js-base64'
 
@@ -22,7 +22,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   })
   if (method.toLowerCase() === 'post') {
     const { internal_url, params } = req.body
-    const url = `${WAVE_BASE_URL}${internal_url}`
+    const url = `${COINLIGHT_BASE_URL}${internal_url}`
     let config = {}
     if (url.indexOf('export') > -1) {
       config = {
@@ -39,7 +39,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
         res.status(400).json(error)
       })
   } else {
-    const url = `${WAVE_BASE_URL}${splitUrl(req.url)}`
+    const url = `${COINLIGHT_BASE_URL}${splitUrl(req.url)}`
     http
       .get(url)
       .then(response => {
