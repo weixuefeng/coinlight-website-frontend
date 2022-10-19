@@ -2,23 +2,22 @@
  * @Author: liukeke liukeke@diynova.com
  * @Date: 2022-10-17 11:14:29
  * @LastEditors: liukeke liukeke@diynova.com
- * @LastEditTime: 2022-10-18 18:07:40
+ * @LastEditTime: 2022-10-19 16:28:43
  * @FilePath: /coinlight/coinlight-website-frontend/src/components/header/header.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 import React, { Fragment, useState } from 'react'
-import { getCaption } from '../utils/getCaption'
 import { utcDateTime } from '../utils/utcDateTime'
+
 export default function ListContent(props) {
-  let a = '2022-10-18T07:33:20.875Z'
-  console.log('oooo', getCaption(a, 'T'))
   return (
     <div className="list-content">
       <ul>
         {props.newsData?.map((item, index) => {
           return (
             <li className="list" key={index}>
-              <a href={item.attributes.link}>
+              {/* item.attributes.link */}
+              <a href={`/detail/${item.id}`}>
                 <div className="content-img">
                   <img src={item.attributes.image} alt="list-img" />
                 </div>

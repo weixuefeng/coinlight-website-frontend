@@ -22,6 +22,8 @@
   }
   .details-item {
     @apply mt-10 rounded-[20px] bg-white p-4;
+  }
+  .item-content {
     img {
       @apply mx-auto mb-10 rounded-[20px];
     }
@@ -30,6 +32,12 @@
     }
     p {
       @apply mb-10 text-base text-gray666;
+    }
+  }
+  .tags {
+    @apply flex;
+    li {
+      @apply mr-4 mt-5 rounded-[20px] bg-bluee6 px-4 py-1 text-blue31;
     }
   }
 }
