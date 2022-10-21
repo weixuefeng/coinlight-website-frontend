@@ -5,5 +5,5 @@ i {
   font-style: normal;
 }
 .container {
-  @apply mx-auto max-w-[1200px];
+  @apply mx-auto w-full md:max-w-[1200px];
 }

@@ -12,7 +12,7 @@
       @apply h-full w-full rounded-[20px];
     }
     p {
-      @apply w-[926px] truncate px-8 py-2 text-lg md:px-4 md:text-xl;
+      @apply w-full truncate px-8 py-2 text-lg md:px-4 md:text-xl;
     }
   }
   .left-loading {
@@ -42,7 +42,7 @@
       @apply h-[193px] w-[250px] rounded-[20px];
     }
     p {
-      @apply h-[98px] w-[250px] px-2 py-4 text-base;
+      @apply h-[98px] px-2 py-4 text-base;
       overflow: hidden;
       text-overflow: ellipsis;
       display: -webkit-box;

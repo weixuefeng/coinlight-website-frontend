@@ -7,15 +7,15 @@
     }
   }
   .content-img {
-    @apply mr-9 hidden h-[235px] w-[350px] md:block;
+    @apply mr-9 hidden h-[235px] w-[30%] md:block;
     img {
       @apply h-full w-full rounded-[20px];
     }
   }
   .content-text {
-    @apply w-[758px];
+    @apply w-full md:w-[66%];
     h3 {
-      @apply text-lg font-bold text-gray333 md:text-[26px];
+      @apply truncate text-lg font-bold text-gray333 md:text-[26px];
     }
     p {
       @apply mt-5 mb-3 text-sm text-gray999 md:mt-7 md:text-lg;

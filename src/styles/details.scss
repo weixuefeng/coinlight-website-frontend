@@ -1,6 +1,6 @@
 .details {
   .title {
-    @apply mt-[69px] mb-5 px-4 text-xl text-gray333 md:mb-[42px] md:px-0 md:text-[2.5rem] md:leading-[56px];
+    @apply mt-[29px] mb-5 px-4 text-xl text-gray333 md:mt-[69px] md:mb-[42px] md:px-0 md:text-[2.5rem] md:leading-[56px];
   }
   .source {
     @apply flex items-center px-4 md:px-0;
@@ -31,7 +31,7 @@
       @apply mb-6 text-2xl text-gray333;
     }
     p {
-      @apply mb-10 text-sm text-gray666 md:text-base;
+      @apply mb-7 text-sm text-gray666 md:mb-10 md:text-base;
     }
   }
   .tags {
