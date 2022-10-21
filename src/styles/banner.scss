@@ -15,6 +15,21 @@
       @apply w-[926px] truncate p-4 text-xl;
     }
   }
+  .left-loading {
+    @apply h-full w-full;
+  }
+  .ant-skeleton-element,
+  .ant-skeleton-element .ant-skeleton-image {
+    @apply h-full w-full rounded-[20px];
+  }
+  .ant-skeleton-element .ant-skeleton-image-svg {
+    @apply h-1/2 w-1/2;
+  }
+  .right-lading {
+    .ant-skeleton-element .ant-skeleton-image {
+      @apply h-[193px] w-[250px] rounded-[20px];
+    }
+  }
   .banner-right {
     li {
       @apply relative;

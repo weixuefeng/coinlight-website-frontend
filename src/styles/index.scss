@@ -56,4 +56,16 @@
       }
     }
   }
+  .content-lading {
+    @apply mb-[3.75rem] flex justify-between;
+    .ant-skeleton-element {
+      @apply mr-9 h-[235px]  w-[350px];
+    }
+    .ant-skeleton-element .ant-skeleton-image {
+      @apply h-full w-full rounded-[20px];
+    }
+    .ant-skeleton-element .ant-skeleton-image-svg {
+      @apply h-1/2 w-1/2;
+    }
+  }
 }
