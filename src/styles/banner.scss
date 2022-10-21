@@ -7,12 +7,12 @@
     @apply inline-block h-full w-full;
   }
   .banner-left {
-    @apply relative h-[402px] w-[926px];
+    @apply relative h-[171px] w-full px-4 md:mr-6 md:h-[402px] md:w-[926px] md:px-0;
     img {
       @apply h-full w-full rounded-[20px];
     }
     p {
-      @apply w-[926px] truncate p-4 text-xl;
+      @apply w-[926px] truncate px-8 py-2 text-lg md:px-4 md:text-xl;
     }
   }
   .left-loading {
@@ -31,6 +31,7 @@
     }
   }
   .banner-right {
+    @apply hidden md:block;
     li {
       @apply relative;
       &:nth-child(1) {

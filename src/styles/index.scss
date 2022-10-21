@@ -1,13 +1,13 @@
 .list-content {
   @apply rounded-[20px] bg-white px-7 py-10;
   .list {
-    @apply mb-[3.75rem];
+    @apply mb-10 md:mb-[3.75rem];
     a {
       @apply flex justify-between;
     }
   }
   .content-img {
-    @apply h-[235px] w-[350px];
+    @apply mr-9 hidden h-[235px] w-[350px] md:block;
     img {
       @apply h-full w-full rounded-[20px];
     }
@@ -15,10 +15,10 @@
   .content-text {
     @apply w-[758px];
     h3 {
-      @apply text-[26px] font-bold text-gray333;
+      @apply text-lg font-bold text-gray333 md:text-[26px];
     }
     p {
-      @apply mt-7 mb-3 text-lg text-gray999;
+      @apply mt-5 mb-3 text-sm text-gray999 md:mt-7 md:text-lg;
       overflow: hidden;
       text-overflow: ellipsis;
       display: -webkit-box;
@@ -30,11 +30,11 @@
   .tags {
     @apply flex;
     li {
-      @apply mr-4 rounded-[20px] bg-bluee6 px-4 py-1 text-blue31;
+      @apply mr-4 rounded-[20px] bg-bluee6 px-4 py-1 text-xs text-blue31 md:text-base;
     }
   }
   .source-box {
-    @apply mt-10 flex items-center justify-between text-gray999;
+    @apply mt-4 flex items-center justify-between text-gray999 md:mt-10;
     .source,
     .time {
       @apply flex items-center justify-center;
@@ -44,13 +44,13 @@
       }
     }
     .source {
-      @apply text-lg;
+      @apply text-xs md:text-lg;
       img {
-        @apply h-7 w-7;
+        @apply h-5 w-5 md:h-7 md:w-7;
       }
     }
     .time {
-      @apply text-base;
+      @apply text-xs md:text-base;
       i {
         @apply inline-block h-[22px] w-[22px] bg-icon-time bg-cover;
       }
@@ -59,7 +59,7 @@
   .content-lading {
     @apply mb-[3.75rem] flex justify-between;
     .ant-skeleton-element {
-      @apply mr-9 h-[235px]  w-[350px];
+      @apply mr-9 hidden  h-[235px] w-[350px] md:block;
     }
     .ant-skeleton-element .ant-skeleton-image {
       @apply h-full w-full rounded-[20px];
