@@ -13,6 +13,8 @@
     }
     p {
       @apply w-full truncate px-8 py-2 text-lg md:px-4 md:text-xl;
+      border-radius: 0 0 20px 20px;
+      background: linear-gradient(180deg, rgba(10, 0, 0, 0) 0%, #0a0000 100%);
     }
   }
   .left-loading {
@@ -42,7 +44,9 @@
       @apply h-[193px] w-[250px] rounded-[20px];
     }
     p {
-      @apply h-[98px] px-2 py-4 text-base;
+      @apply h-[92px] px-2 py-4 text-base;
+      border-radius: 0 0 20px 20px;
+      background: linear-gradient(180deg, rgba(10, 0, 0, 0) 0%, #0a0000 100%);
       overflow: hidden;
       text-overflow: ellipsis;
       display: -webkit-box;

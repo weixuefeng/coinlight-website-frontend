@@ -68,4 +68,7 @@
       @apply h-1/2 w-1/2;
     }
   }
+  .date-loading {
+    @apply text-center text-sm text-gray999 md:text-base;
+  }
 }

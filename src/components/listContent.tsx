@@ -2,21 +2,68 @@
  * @Author: liukeke liukeke@diynova.com
  * @Date: 2022-10-17 11:14:29
  * @LastEditors: liukeke liukeke@diynova.com
- * @LastEditTime: 2022-10-21 11:12:25
+ * @LastEditTime: 2022-10-24 17:35:30
  * @FilePath: /coinlight/coinlight-website-frontend/src/components/header/header.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
-import React, { Fragment, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { utcDateTime } from '../utils/utcDateTime'
 import { Skeleton } from 'antd'
+import { getRequest } from 'services/getAxios'
+
 export default function ListContent(props) {
+  const listHeight = useRef<HTMLDivElement | null>(null)
+  const [total, setTotal] = useState(1)
+  const [page, setPage] = useState(1)
+  const [newsData, setNewsData] = useState<any>([])
+  const [isBootm, setIsBootm] = useState(false)
+
+  const getDataInfo = async newPage => {
+    const newsUrl = `api/proxy?news?populate=*&pagination[page]=${newPage}&pagination[pageSize]=10`
+    const resNews = await getRequest(newsUrl)
+    let data = resNews.data.data
+    console.log(newPage)
+    if (newPage == 1) {
+      setNewsData(data)
+    } else {
+      setNewsData(newsData.concat(data))
+    }
+    console.log('newsData', newsData)
+    setTotal(resNews.data.meta.pagination.total)
+  }
+
+  useEffect(() => {
+    getDataInfo(1)
+  }, [])
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  })
+
+  const handleScroll = (e: any) => {
+    let scrollTop = document.documentElement.scrollTop
+    let clientHeight = document.documentElement.clientHeight
+    let scrollHeight = document.documentElement.scrollHeight
+    if (scrollTop + clientHeight == scrollHeight) {
+      if (newsData.length < total) {
+        let newPage = page + 1
+        setPage(newPage)
+        setIsBootm(true)
+        getDataInfo(newPage)
+      } else {
+        setIsBootm(false)
+      }
+    }
+  }
+
   return (
     <div className="list-content">
-      <ul>
-        {props.newsData !== undefined ? (
-          props.newsData?.map((item, index) => {
+      <div ref={listHeight}>
+        {newsData.length !== 0 ? (
+          newsData?.map((item, index) => {
             return (
-              <li className="list" key={index}>
+              <div className="list" key={index}>
                 <a href={`/detail/${item.id}`}>
                   <div className="content-img">
                     <img src={item.attributes.image} alt="list-img" />
@@ -41,26 +88,27 @@ export default function ListContent(props) {
                     </div>
                   </div>
                 </a>
-              </li>
+              </div>
             )
           })
         ) : (
           <>
-            <li className="content-lading">
+            <div className="content-lading">
               <Skeleton.Image active />
               <Skeleton active paragraph={{ rows: 6 }} />
-            </li>
-            <li className="content-lading">
+            </div>
+            <div className="content-lading">
               <Skeleton.Image active />
               <Skeleton active paragraph={{ rows: 6 }} />
-            </li>
-            <li className="content-lading">
+            </div>
+            <div className="content-lading">
               <Skeleton.Image active />
               <Skeleton active paragraph={{ rows: 6 }} />
-            </li>
+            </div>
           </>
         )}
-      </ul>
+        <div className="date-loading">{isBootm === true ? '正在加载中～' : '到底啦～'}</div>
+      </div>
     </div>
   )
 }
