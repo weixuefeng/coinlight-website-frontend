@@ -1,6 +1,6 @@
 .footer {
-  @apply mt-[3.75rem] flex h-[62px] w-full items-center justify-center bg-grayea text-center;
+  @apply flex h-[62px] w-full items-center justify-center bg-gray333 text-center;
   p {
-    @apply text-base text-gray999;
+    @apply text-sm text-gray666;
   }
 }

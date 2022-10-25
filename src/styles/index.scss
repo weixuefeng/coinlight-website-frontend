@@ -1,9 +1,11 @@
 .list-content {
-  @apply rounded-[20px] bg-white px-7 py-10;
+  @apply pt-[37px] pb-11 md:pt-[69px] md:pb-8;
   .list {
-    @apply mb-10 md:mb-[3.75rem];
     a {
-      @apply flex justify-between;
+      @apply mb-12 flex justify-between md:mb-[3.75rem] md:border-b-[1px] md:border-graydd md:pb-[43px];
+      &:last-child {
+        @apply border-none;
+      }
     }
   }
   .content-img {
@@ -13,12 +15,9 @@
     }
   }
   .content-text {
-    @apply w-full md:w-[66%];
+    @apply w-full md:w-[60%];
     h3 {
-      @apply truncate text-lg font-bold text-gray333 md:text-[26px];
-    }
-    p {
-      @apply mt-5 mb-3 text-sm text-gray999 md:mt-7 md:text-lg;
+      @apply text-lg font-bold text-gray3d md:text-[26px];
       overflow: hidden;
       text-overflow: ellipsis;
       display: -webkit-box;
@@ -27,19 +26,39 @@
       -webkit-line-clamp: 2;
     }
   }
+  .content-info {
+    @apply w-full md:w-[35%];
+    p {
+      @apply mb-3 text-sm leading-[30px] text-gray999 md:text-base;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 6;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 6;
+    }
+  }
+  .content-info-h5 {
+    @apply block md:hidden;
+    p {
+      @apply mt-4;
+    }
+  }
+  .content-info-pc {
+    @apply hidden md:block;
+  }
   .tags {
-    @apply flex;
+    @apply flex md:mt-5;
     li {
-      @apply mr-4 rounded-[20px] bg-bluee6 px-4 py-1 text-xs text-blue31 md:text-base;
+      @apply mr-4 rounded-[20px] bg-grayee px-4 py-1 text-xs text-gray666 md:text-base;
     }
   }
   .source-box {
-    @apply mt-4 flex items-center justify-between text-gray999 md:mt-10;
+    @apply mt-5 flex items-center justify-between text-gray999 md:mt-10 md:justify-start;
     .source,
     .time {
       @apply flex items-center justify-center;
-      img,
-      i {
+      img {
         @apply mr-1;
       }
     }
@@ -52,7 +71,7 @@
     .time {
       @apply text-xs md:text-base;
       i {
-        @apply inline-block h-[22px] w-[22px] bg-icon-time bg-cover;
+        @apply mx-2 hidden h-[18px] w-0.5 bg-grayd8 md:inline-block;
       }
     }
   }
@@ -69,6 +88,22 @@
     }
   }
   .date-loading {
-    @apply text-center text-sm text-gray999 md:text-base;
+    @apply text-center text-sm text-white md:text-base;
+    span {
+      @apply cursor-pointer rounded-[5px] bg-gray333 px-[76px] py-2 text-center;
+    }
+  }
+}
+@media (min-width: 300px) and (max-width: 1200px) {
+  .container {
+    @apply px-4;
+  }
+  .list-content {
+    .content-info {
+      p {
+        -webkit-line-clamp: 3;
+        -webkit-line-clamp: 3;
+      }
+    }
   }
 }
