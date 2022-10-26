@@ -2,69 +2,47 @@
  * @Author: liukeke liukeke@diynova.com
  * @Date: 2022-10-17 11:14:29
  * @LastEditors: liukeke liukeke@diynova.com
- * @LastEditTime: 2022-10-25 22:29:44
+ * @LastEditTime: 2022-10-26 20:03:31
  * @FilePath: /coinlight/coinlight-website-frontend/src/components/header/header.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import { utcDateTime } from '../utils/utcDateTime'
 import { Skeleton } from 'antd'
 import { getRequest } from 'services/getAxios'
-import { arrayBuffer } from 'stream/consumers'
+import { group } from '../utils/group'
+import { arrLodaing } from '../constants/constant'
 
 export default function ListContent(props) {
-  // const listHeight = useRef<HTMLDivElement | null>(null)
   const [total, setTotal] = useState<any>()
-  const [page, setPage] = useState(1)
+  const [page, setPage] = useState(0)
   const [newsData, setNewsData] = useState<any>([])
-  // const [isBootm, setIsBootm] = useState(false)
+  const [resData, setResData] = useState<any>({})
 
-  const getDataInfo = async newPage => {
-    const newsUrl = `api/proxy?news?populate=*&pagination[page]=${newPage}&pagination[pageSize]=10`
+  const getDataInfo = async () => {
+    const newsUrl = `api/proxy?news?populate=*`
     const resNews = await getRequest(newsUrl)
     let data = resNews.data.data
-    if (newPage == 1) {
-      setNewsData(data)
-    } else {
-      setNewsData(newsData.concat(data))
-    }
     setTotal(resNews.data.meta.pagination.total)
+    data.sort(function (a, b) {
+      return b.attributes.publishedAt < a.attributes.publishedAt ? -1 : 1
+    })
+    let newData = group(data, 10)
+    setNewsData(newData[0])
+    setResData(newData)
   }
-
-  useEffect(() => {
-    getDataInfo(1)
-  }, [])
 
   const getMoreDate = () => {
     if (newsData.length < total) {
       let newPage = page + 1
       setPage(newPage)
-      getDataInfo(newPage)
+      setNewsData(newsData.concat(resData[newPage]))
     }
   }
 
-  let arrLodaing = [1, 2, 3, 4, 5, 6]
-
-  // useEffect(() => {
-  //   window.addEventListener('scroll', handleScroll)
-  //   return () => window.removeEventListener('scroll', handleScroll)
-  // })
-
-  // const handleScroll = () => {
-  //   let scrollTop = document.documentElement.scrollTop
-  //   let clientHeight = document.documentElement.clientHeight
-  //   let scrollHeight = document.documentElement.scrollHeight
-  //   if (scrollTop + clientHeight == scrollHeight) {
-  //     if (newsData.length < total) {
-  //       let newPage = page + 1
-  //       setPage(newPage)
-  //       setIsBootm(true)
-  //       getDataInfo(newPage)
-  //     } else {
-  //       setIsBootm(false)
-  //     }
-  //   }
-  // }
+  useEffect(() => {
+    getDataInfo()
+  }, [])
 
   return (
     <div className="list-content">
@@ -73,9 +51,6 @@ export default function ListContent(props) {
           newsData?.map((item, index) => {
             return (
               <a href={`/detail/${item.id}`} key={index}>
-                {/* <div className="content-img">
-                    <img src={item.attributes.image} alt="list-img" />
-                  </div> */}
                 <div className="content-text">
                   <h3>{item.attributes.title}</h3>
                   <div className="content-info content-info-h5">
@@ -115,9 +90,11 @@ export default function ListContent(props) {
           </>
         )}
       </div>
-      <div className="date-loading">
-        <span onClick={getMoreDate}>{newsData.length < total ? '加载更多～' : '到底啦～'}</span>
-      </div>
+      {newsData.length > 9 ? (
+        <div className="date-loading">
+          <span onClick={getMoreDate}>{newsData.length < total ? '加载更多～' : '到底啦～'}</span>
+        </div>
+      ) : null}
     </div>
   )
 }

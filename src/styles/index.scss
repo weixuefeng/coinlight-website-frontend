@@ -17,7 +17,7 @@
   .content-text {
     @apply w-full md:w-[60%];
     h3 {
-      @apply text-lg font-bold text-gray3d md:text-[26px];
+      @apply text-lg font-bold leading-[38px] text-gray3d md:text-[26px];
       overflow: hidden;
       text-overflow: ellipsis;
       display: -webkit-box;
@@ -90,7 +90,7 @@
   .date-loading {
     @apply text-center text-sm text-white md:text-base;
     span {
-      @apply cursor-pointer rounded-[5px] bg-gray333 px-[76px] py-2 text-center;
+      @apply inline-block cursor-pointer rounded-[5px] bg-gray333 px-[76px] py-2 text-center;
     }
   }
 }
