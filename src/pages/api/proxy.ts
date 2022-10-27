@@ -1,9 +1,9 @@
 /*
  * @Author: liukeke liukeke@diynova.com
  * @Date: 2022-10-12 19:07:34
- * @LastEditors: liukeke liukeke@diynova.com
- * @LastEditTime: 2022-10-21 15:42:42
- * @FilePath: /nextjs-starter-boilerplate/src/pages/api/hello.ts
+ * @LastEditors: weixuefeng weixuefeng@diynova.com
+ * @LastEditTime: 2022-10-27 17:39:50
+ * @FilePath: /coinlight-website-frontend/src/pages/api/proxy.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
@@ -19,7 +19,7 @@ type Data = {
 }
 
 export default function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
-  let url = res.req.url
+  let url = req.url
   let index = url.indexOf('?')
   let urlItem = url.substring(index + 1)
 
