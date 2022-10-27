@@ -2,7 +2,7 @@
  * @Author: liukeke liukeke@diynova.com
  * @Date: 2022-10-17 17:32:03
  * @LastEditors: liukeke liukeke@diynova.com
- * @LastEditTime: 2022-10-21 15:44:16
+ * @LastEditTime: 2022-10-27 11:15:41
  * @FilePath: /coinlight/coinlight-website-frontend/src/pages/details.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE<
  */
@@ -14,6 +14,7 @@ import { useRouter } from 'next/router'
 import { utcDateTime } from '../../utils/utcDateTime'
 import MarkdownView from 'react-showdown'
 import { Skeleton } from 'antd'
+
 export default Home
 
 function Home() {
@@ -24,33 +25,34 @@ function Home() {
 function Main() {
   const router = useRouter()
   const { id } = router.query
-
   const [newsItemData, setNewsItemData] = useState<any>()
-  // const newsItemUrl = `/api/proxy?news/${id}?populate=*`
-  // const bannerItemUrl = `/api/proxy?banners/${id}`
-
-  let path: any
-  if (typeof window !== 'undefined' && typeof document !== 'undefined') {
-    path = window.location.pathname
-    path = path.match(/^\/.*?\/(.*)$/ || [])[1]
-  }
-  let hrefTitle = ''
-  if (path) {
-    hrefTitle = path.split('/')[0]
-  }
-  let arrId = hrefTitle.split('=')
-  let newsItemUrl
-  arrId.length < 2
-    ? (newsItemUrl = `/api/proxy?news/${arrId[0]}?populate=*`)
-    : (newsItemUrl = `/api/proxy?banners/${arrId[1]}?populate=*`)
 
   useEffect(() => {
     const getDataInfo = async () => {
+      const newsItemUrl = `/api/proxy?news/${id}?populate=*`
       const resNews = await getRequest(`${newsItemUrl}`)
       setNewsItemData(resNews.data.data.attributes)
     }
     getDataInfo()
   }, [id])
+
+  // const newsItemUrl = `/api/proxy?news/${id}?populate=*`
+  // const bannerItemUrl = `/api/proxy?banners/${id}`
+
+  // let path: any
+  // if (typeof window !== 'undefined' && typeof document !== 'undefined') {
+  //   path = window.location.pathname
+  //   path = path.match(/^\/.*?\/(.*)$/ || [])[1]
+  // }
+  // let hrefTitle = ''
+  // if (path) {
+  //   hrefTitle = path.split('/')[0]
+  // }
+  // let arrId = hrefTitle.split('=')
+  // let newsItemUrl
+  // arrId.length < 2
+  //   ? (newsItemUrl = `/api/proxy?news/${arrId[0]}?populate=*`)
+  //   : (newsItemUrl = `/api/proxy?banners/${arrId[1]}?populate=*`)
 
   return (
     <div className="details container">
