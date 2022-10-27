@@ -1,6 +1,9 @@
 .footer {
-  @apply flex h-[62px] w-full items-center justify-center bg-gray333 text-center;
+  @apply flex h-[62px] w-full items-center justify-center bg-grayea text-center;
   p {
-    @apply text-sm text-gray666;
+    @apply text-sm text-grayb5;
   }
+}
+.detail-box {
+  @apply fixed  left-0 bottom-0 w-full;
 }

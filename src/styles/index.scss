@@ -29,7 +29,7 @@
   .content-info {
     @apply w-full md:w-[35%];
     p {
-      @apply mb-3 text-sm leading-[30px] text-gray999 md:text-base;
+      @apply mb-3 text-sm leading-[26px] text-gray999 md:text-base md:leading-[30px];
       overflow: hidden;
       text-overflow: ellipsis;
       display: -webkit-box;
@@ -90,7 +90,10 @@
   .date-loading {
     @apply text-center text-sm text-white md:text-base;
     span {
-      @apply inline-block cursor-pointer rounded-[5px] bg-gray333 px-[76px] py-2 text-center;
+      @apply inline-block cursor-pointer rounded-[5px] bg-gray44 px-[76px] py-2 text-center;
+    }
+    p {
+      @apply text-gray999;
     }
   }
 }
