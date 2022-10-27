@@ -1,9 +1,9 @@
 /*
  * @Author: liukeke liukeke@diynova.com
  * @Date: 2022-10-17 11:14:29
- * @LastEditors: liukeke liukeke@diynova.com
- * @LastEditTime: 2022-10-26 20:03:31
- * @FilePath: /coinlight/coinlight-website-frontend/src/components/header/header.tsx
+ * @LastEditors: weixuefeng weixuefeng@diynova.com
+ * @LastEditTime: 2022-10-27 18:26:58
+ * @FilePath: /coinlight-website-frontend/src/components/listContent.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 import React, { useEffect, useState } from 'react'
@@ -12,13 +12,14 @@ import { Skeleton } from 'antd'
 import { getRequest } from 'services/getAxios'
 import { group } from '../utils/group'
 import { arrLodaing } from '../constants/constant'
+import { COINLIGHT_BASE_URL } from 'constants/setting'
 
 export default function ListContent(props) {
   const [total, setTotal] = useState<any>()
   const [page, setPage] = useState(0)
   const [newsData, setNewsData] = useState<any>([])
   const [resData, setResData] = useState<any>({})
-
+  console.log(COINLIGHT_BASE_URL)
   const getDataInfo = async () => {
     const newsUrl = `api/proxy?news?populate=*`
     const resNews = await getRequest(newsUrl)
