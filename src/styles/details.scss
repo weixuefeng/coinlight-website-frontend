@@ -33,10 +33,14 @@
     h2 {
       @apply mb-6 text-lg text-gray333 md:text-2xl;
     }
+    ol,
+    ul {
+      @apply mb-7 md:mb-10;
+    }
     ol dd,
     ul li,
     p {
-      @apply mb-7 text-sm leading-[28px] text-gray666 md:mb-10 md:text-base md:leading-[34px];
+      @apply mb-4 text-sm leading-[28px] text-gray666 md:mb-6 md:text-base md:leading-[34px];
     }
   }
   .tags {

@@ -2,6 +2,9 @@
   @apply flex h-20 items-center justify-center border-[1px] border-whitef1 bg-whitefb;
   .logo {
     @apply h-[48px] w-[164px];
+    img {
+      @apply h-full w-full cursor-pointer;
+    }
   }
   dl {
     @apply relative ml-3 h-4 cursor-pointer leading-4;
