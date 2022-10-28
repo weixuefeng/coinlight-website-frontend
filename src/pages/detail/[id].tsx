@@ -2,7 +2,7 @@
  * @Author: liukeke liukeke@diynova.com
  * @Date: 2022-10-17 17:32:03
  * @LastEditors: liukeke liukeke@diynova.com
- * @LastEditTime: 2022-10-28 17:00:49
+ * @LastEditTime: 2022-10-28 18:02:07
  * @FilePath: /coinlight/coinlight-website-frontend/src/pages/details.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE<
  */
@@ -19,13 +19,14 @@ export default Home
 
 function Home() {
   const [title, setTitle] = useState('Detail')
-  // let pageModel = new PageModel('Detail', '', 'detail-box')
-  let pageModel = new PageModel(title, '', 'detail-box')
-  return <>{NormalLayout(<Main setTitle={setTitle} />, pageModel)}</>
+  const [desc, setDesc] = useState('THE NEWS PLATFORM OF GLOBAL DIGITAL ENTERTAINMENT')
+  const [image, setImage] = useState('https://ipfs.wavemall.io/ipfs/QmRwwGq91m3Q4euzLshLrra4m1p1QTUwmNS8h6epqiEZTL')
+  let pageModel = new PageModel(title, desc, 'detail-box', image)
+  return <>{NormalLayout(<Main setTitle={setTitle} setDesc={setDesc} setImage={setImage} />, pageModel)}</>
 }
 
 function Main(props) {
-  const { setTitle } = props
+  const { setTitle, setDesc, setImage } = props
   const router = useRouter()
   const { id } = router.query
   const [newsItemData, setNewsItemData] = useState<any>()
@@ -36,6 +37,8 @@ function Main(props) {
       const resNews = await getRequest(`${newsItemUrl}`)
       setNewsItemData(resNews.data.data.attributes)
       setTitle(resNews.data.data.attributes.title)
+      setDesc(resNews.data.data.attributes.content)
+      setImage(resNews.data.data.attributes.img)
     }
     getDataInfo()
   }, [id])
