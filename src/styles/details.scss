@@ -2,6 +2,7 @@
   @apply pb-[70px];
   .title {
     @apply mt-[29px] mb-5 text-xl font-bold text-gray333 md:mt-[69px] md:mb-[42px] md:text-[2.5rem] md:leading-[56px];
+    font-family: 'SourceHanSans-Bold';
   }
   .source {
     @apply flex items-center;
@@ -29,6 +30,15 @@
     @apply border-b-[1px] border-grayee;
     img {
       @apply mx-auto mb-10 rounded-[20px];
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      @apply text-gray333;
+      font-family: 'SourceHanSans-Bold';
     }
     h2 {
       @apply mb-6 text-lg text-gray333 md:text-2xl;

@@ -1,9 +1,18 @@
 body {
   @apply bg-whitef8;
+  font-family: 'SourceHanSans-Regular';
 }
 i {
   font-style: normal;
 }
 .container {
   @apply mx-auto w-full md:max-w-[1200px];
+}
+@font-face {
+  font-family: 'SourceHanSans-Bold';
+  src: url('/assets/fonts/SourceHanSans-Bold.otf');
+}
+@font-face {
+  font-family: 'SourceHanSans-Regular';
+  src: url('/assets/fonts/SourceHanSans-Regular.otf');
 }
