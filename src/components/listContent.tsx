@@ -2,7 +2,7 @@
  * @Author: liukeke liukeke@diynova.com
  * @Date: 2022-10-17 11:14:29
  * @LastEditors: liukeke liukeke@diynova.com
- * @LastEditTime: 2022-10-27 19:01:30
+ * @LastEditTime: 2022-10-30 13:39:01
  * @FilePath: /coinlight-website-frontend/src/components/listContent.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -13,15 +13,20 @@ import { getRequest } from 'services/getAxios'
 import { group } from '../utils/group'
 import { arrLodaing } from '../constants/constant'
 import { COINLIGHT_BASE_URL } from 'constants/setting'
+import { getLocalData } from '../localstorage/localstorage'
+import { LocalKey } from 'constants/key'
 
 export default function ListContent(props) {
+  const { languageVal } = props
   const [total, setTotal] = useState<any>()
   const [page, setPage] = useState(0)
   const [newsData, setNewsData] = useState<any>([])
   const [resData, setResData] = useState<any>({})
-  console.log(COINLIGHT_BASE_URL)
+  // const token = getLocalData('language', 'zh')
+
   const getDataInfo = async () => {
-    const newsUrl = `api/proxy?news?populate=*`
+    const newsUrl = `api/proxy?news?filters[language]=${languageVal}&populate=*`
+    console.log('url', newsUrl)
     const resNews = await getRequest(newsUrl)
     let data = resNews.data.data
     setTotal(resNews.data.meta.pagination.total)
@@ -43,7 +48,7 @@ export default function ListContent(props) {
 
   useEffect(() => {
     getDataInfo()
-  }, [])
+  }, [languageVal])
 
   return (
     <div className="list-content">
