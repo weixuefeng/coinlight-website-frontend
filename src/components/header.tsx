@@ -23,11 +23,11 @@ const Header: React.FC<middleProps> = props => {
   const languageTitle = [
     {
       language: 'en',
-      title: t('English'),
+      title: 'English',
     },
     {
       language: 'zh',
-      title: t('Chinese'),
+      title: '简体中文',
     },
   ]
 
