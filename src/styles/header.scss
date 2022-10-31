@@ -1,5 +1,8 @@
-.header {
-  @apply flex h-20 items-center justify-center border-[1px] border-whitef1 bg-whitefb;
+.header-box {
+  @apply relative flex h-20 items-center justify-center border-[1px] border-whitef1 bg-whitefb;
+  .header {
+    @apply relative flex h-20 items-center justify-center;
+  }
   .logo {
     @apply h-[48px] w-[164px];
     img {
@@ -7,14 +10,28 @@
     }
   }
   dl {
-    @apply relative ml-3 h-4 cursor-pointer leading-4;
-    // &:hover {
-    //   dd {
-    //     @apply block h-10 w-auto;
-    //   }
-    // }
+    @apply absolute top-0 right-4 ml-3 h-20 cursor-pointer leading-4 md:right-0;
+    dd {
+      @apply hidden;
+    }
+    &:hover {
+      dd {
+        @apply block;
+      }
+    }
+  }
+  dt {
+    @apply flex h-20 w-[138px] items-center justify-end;
   }
   dd {
-    @apply absolute top-[18px] right-0 leading-6;
+    @apply absolute -bottom-[103px] right-0 rounded-[10px] bg-white py-4 pl-4  pr-[58px] text-base leading-6 text-gray3d;
+    span {
+      @apply block py-2;
+    }
+  }
+  .language {
+    img {
+      @apply h-6 w-6;
+    }
   }
 }

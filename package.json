@@ -21,6 +21,7 @@
     "autoprefixer": "^10.4.4",
     "axios": "^1.1.2",
     "i18next": "^21.8.0",
+    "i18next-browser-languagedetector": "^7.0.0",
     "js-base64": "^3.7.2",
     "next": "^12.1.0",
     "next-themes": "^0.1.1",
