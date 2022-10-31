@@ -26,7 +26,7 @@ export default function ListContent(props) {
     const newsUrl = `api/proxy?news?filters[language]=${languageVal}&populate=*`
     const resNews = await getRequest(newsUrl)
     let data = resNews.data.data
-    setTotal(resNews.data.meta.pagination.total)
+    setTotal(data.length)
     data.sort(function (a, b) {
       return b.attributes.publishedAt < a.attributes.publishedAt ? -1 : 1
     })
