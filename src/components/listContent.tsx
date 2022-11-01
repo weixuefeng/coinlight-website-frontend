@@ -2,7 +2,7 @@
  * @Author: liukeke liukeke@diynova.com
  * @Date: 2022-10-17 11:14:29
  * @LastEditors: liukeke liukeke@diynova.com
- * @LastEditTime: 2022-11-01 16:46:12
+ * @LastEditTime: 2022-11-01 17:09:48
  * @FilePath: /coinlight-website-frontend/src/components/listContent.tsx
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -51,13 +51,17 @@ export default function ListContent(props) {
   }, [languageVal, token])
 
   if (isLoading) {
-    return arrLodaing.map(index => {
-      return (
-        <div className="content-lading" key={index}>
-          <Skeleton active paragraph={{ rows: 6 }} />
-        </div>
-      )
-    })
+    return (
+      <>
+        {arrLodaing.map(index => {
+          return (
+            <div className="content-lading" key={index}>
+              <Skeleton active paragraph={{ rows: 6 }} />
+            </div>
+          )
+        })}
+      </>
+    )
   }
 
   if (!newsData) {
@@ -67,7 +71,7 @@ export default function ListContent(props) {
   return (
     <div className="list-content">
       <div className="list">
-        {newsData?.map((item, index) => {
+        {newsData.map((item, index) => {
           return (
             <a href={`/detail/${item.id}`} key={index}>
               <div className="content-text">
@@ -98,9 +102,9 @@ export default function ListContent(props) {
           )
         })}
       </div>
-      {newsData?.length > 9 ? (
+      {newsData.length > 9 ? (
         <div className="date-loading">
-          {newsData?.length < total ? <span onClick={getMoreDate}>加载更多</span> : <p>到底了</p>}
+          {newsData.length < total ? <span onClick={getMoreDate}>加载更多</span> : <p>到底了</p>}
         </div>
       ) : null}
     </div>
