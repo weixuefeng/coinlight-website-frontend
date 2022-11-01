@@ -11,14 +11,6 @@
   }
   dl {
     @apply absolute top-0 right-4 ml-3 h-20 cursor-pointer leading-4 md:right-0;
-    dd {
-      @apply hidden;
-    }
-    &:hover {
-      dd {
-        @apply block;
-      }
-    }
   }
   dt {
     @apply flex h-20 w-[138px] items-center justify-end;
